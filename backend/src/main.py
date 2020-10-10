@@ -1,5 +1,6 @@
 from fastapi import Body, Request, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from BingHelper import BingHelper
 
 app = FastAPI()
 
@@ -19,4 +20,5 @@ app.add_middleware(
 
 @app.get("/")
 def ping():
-    return {"Hello": "World"}
+    bingHelper = BingHelper()
+    return (bingHelper.search("What is pie")).json()
