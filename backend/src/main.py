@@ -21,4 +21,8 @@ app.add_middleware(
 @app.get("/")
 def ping():
     bingHelper = BingHelper()
-    return (bingHelper.search("What is pie")).json()
+    temp = (bingHelper.search("university of central florida scholarships")).json()
+    mappy = []
+    for values in temp["webPages"]["value"]:
+        mappy.append({"url" : values["url"]})
+    return mappy
