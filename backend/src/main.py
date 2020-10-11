@@ -1,6 +1,7 @@
 from fastapi import Body, Request, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from BingHelper import BingHelper
+from CollegeHelper import CollegeHelper
 
 app = FastAPI()
 
@@ -19,10 +20,19 @@ app.add_middleware(
 )
 
 @app.get("/")
-def ping():
+def resource():
+    query = "university of central florida"
     bingHelper = BingHelper()
-    temp = (bingHelper.search("university of central florida scholarships")).json()
+    collegeHelper = CollegeHelper()
+    
+    school = collegeHelper.get_school_json(query)
+    temp = (bingHelper.search(f"{query} scholarships")).json()
+    
     mappy = []
+    mappy.append(school["name"])
+    mappy.append(school["price"])
+
     for values in temp["webPages"]["value"]:
         mappy.append({"url" : values["url"]})
+    
     return mappy
