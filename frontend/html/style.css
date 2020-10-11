@@ -14,7 +14,8 @@ header{
 ul{
     float: right;
     list-style-type: none;
-    margin-top: 25px;
+    margin-top: 1.25%;
+    margin-right: 1%;
 }
 
 ul li{
@@ -59,25 +60,54 @@ ul li.active a{
 
 .title h1{
     color: #fff;
-    font-size: 70px;
+    -webkit-text-stroke: 0.5px black;
+    text-align: center;
+    font-size: 60px;
 }
 
-.button{
+.search-box{
     position: absolute;
-    top: 57%;
+    top: 65%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
+    background: #f9ca24;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
 }
 
-.btn{
-    border: 1px solid #fff;
-    padding: 10px 30px;
-    color: #fff;
-    text-decoration: none;
-    transition: 0.6s ease;
+.search-box:hover > .search-txt{
+    width: 240px;
+    padding: 0 6px;
 }
 
-.btn:hover{
-    background-color: #fff;
-    color: #000;
+.search-box:hover > .search-btn{
+    background: white;
+}
+
+.search-btn{
+    color: black;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.8s;
+    top: 65%;
+}
+
+.search-txt{
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: black;
+    font-size: 16px;
+    transition: 0.8s;
+    line-height: 40px;
+    width: 0px;
 }
